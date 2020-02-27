@@ -1,6 +1,11 @@
 <?php get_header() ?>
 
 My Sample Template File
+<?php
+	if(is_page() ):
+		echo "<br /> <b>this is a page</b>";
+	endif;
+?>
  <!-- Start the Loop. -->
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

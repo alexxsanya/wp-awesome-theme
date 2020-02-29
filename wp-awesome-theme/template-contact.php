@@ -6,7 +6,7 @@
     */
 ?>
 
-<?php get_header('secondary') ?>
+<?php get_header('secondary') ?> 
 
 <div class='row'>
     <div class='col-lg-8'>

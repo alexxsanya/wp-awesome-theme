@@ -48,3 +48,7 @@ add_action( 'after_setup_theme', 'register_navwalker' );
 //     ) );
 // }
 // add_filter( 'wp_nav_menu_args', 'prefix_modify_nav_menu_args' );
+
+//custom image sizes
+add_image_size('blog-large', '800x400', false); //not a hard crop
+add_image_size('blog-small', '300x200', false); // hard crop to ensure consistency

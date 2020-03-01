@@ -28,10 +28,26 @@
  		<?php the_content(); ?>
  	</div>
 
+    <?php 
+        $first_name = get_the_author_meta('first_name');
+        $last_name = get_the_author_meta('last_name');
 
+        $tags = get_the_tags();
+    ?>
+
+
+    <?php 
+        foreach($tags as $tag):
+    ?>
+        <a href="<?php echo get_tag_link($tag->term_id) ?>" class='badge badge-success'>
+            <?php echo $tag->name; ?>
+        </a>
+
+    <?php endforeach; ?>
  	<!-- Display a comma separated list of the Post's Categories. -->
 
- 	<p class="postmetadata"><?php _e( 'Posted in' ); ?> <?php the_category( ', ' ); ?></p>
+ 	<!-- <p class="postmetadata"><?php _e( 'Posted in' ); ?> <?php the_category( ', ' ); ?></p> -->
+ 	<p class="postmetadata"><?php _e( 'Posted by' ); ?> <?php echo $first_name.' '.$last_name?></p>
  	</div> <!-- closes the first div box -->
 
 

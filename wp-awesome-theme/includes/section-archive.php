@@ -11,34 +11,38 @@
  		<div class="card mb-3 post">
  	<?php endif; ?>
 
-	<div class='card-body'>
+	<div class='card-body d-flex justify-content-center align-content-center'>
+
+	<?php if(has_post_thumbnail()):?> 
+		<img src=<?php the_post_thumbnail_url('blog-small')?>  alt="<?php the_title() ?>" class='img-fluid mb-3 img-thumbnail mr-3' />
+	<?php endif; ?>
  	<!-- Display the Title as a link to the Post's permalink. -->
-
- 	<h4><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
-
-
- 	<!-- Display the date (November 16th, 2009 format) and a link to other posts by this posts author. -->
-
- 	<small><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></small>
+	<div class='blog-content'>
+		<h4><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h4>
 
 
- 	<!-- Display the Post's content in a div box. -->
+		<!-- Display the date (November 16th, 2009 format) and a link to other posts by this posts author. -->
 
- 	<div class="entry">
- 		<?php the_excerpt(); ?>
- 	</div>
-	
-	<a href=<?php the_permalink(); ?> class='btn btn-success'>Read More</a>
+		<small><?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?></small>
 
- 	<!-- Display a comma separated list of the Post's Categories. -->
 
- 	<!-- <p class="postmetadata"><?php _e( 'Posted in' ); ?> <?php the_category( ', ' ); ?></p> -->
- 	</div> <!-- closes the first div box -->
-	
-	</div>
+		<!-- Display the Post's content in a div box. -->
+
+		<div class="entry">
+			<?php the_excerpt(); ?>
+		</div>
+		
+		<a href=<?php the_permalink(); ?> class='btn btn-success'>Read More</a>
+
+		<!-- Display a comma separated list of the Post's Categories. -->
+
+		<!-- <p class="postmetadata"><?php _e( 'Posted in' ); ?> <?php the_category( ', ' ); ?></p> -->
+		</div> <!-- closes the first div box -->
+		
+		</div>
 
  	<!-- Stop The Loop (but note the "else:" - see next line). -->
-
+	</div>
  <?php endwhile; else : ?>
 
 

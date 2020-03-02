@@ -52,3 +52,12 @@ add_action( 'after_setup_theme', 'register_navwalker' );
 //custom image sizes
 add_image_size('blog-large', 800, 350, true);
 add_image_size('blog-small', 300, 200, true);
+
+
+//customize the next & prev button
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+  return 'class="btn btn-secondary btn-sm"';
+}

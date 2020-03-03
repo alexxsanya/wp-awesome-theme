@@ -61,3 +61,47 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes() {
   return 'class="btn btn-secondary btn-sm"';
 }
+
+// creates a custom post type projects
+add_action( 'init', 'create_my_post_types' );
+function create_my_post_types() {
+    register_post_type( 'projects',
+    array(
+		'labels' => array(
+		'name' => __( 'Projects' ),
+		'singular_name' => __( 'Project' ),
+		'add_new' => __( 'Add New Project' ),
+		'add_new_item' => __( 'Add New Project' ),
+		'edit' => __( 'Edit' ),
+		'edit_item' => __( 'Edit Project' ),
+		'new_item' => __( 'New Project' ),
+		'view' => __( 'View Project' ),
+		'view_item' => __( 'View Project' ),
+		'search_items' => __( 'Search Projects' ),
+		'not_found' => __( 'No projects found' ),
+		'not_found_in_trash' => __( 'No projects found in Trash' ),
+		'parent' => __( 'Parent Project' ),
+		),
+		'public' => true,
+		'show_ui' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => false,
+		'menu_position' => 10,
+		'menu_icon' => get_stylesheet_directory_uri() . '/img/nrt-shows.png',
+		'hierarchical' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'projects', 'with_front' => false ),
+		'taxonomies' => array( 'post_tag', 'category'),
+		'can_export' => true,
+		'supports' => array(
+			'post-thumbnails',
+			'excerpts',
+			'comments',
+			'revisions',
+			'title',
+			'editor',
+			'page-attributes',
+			'custom-fields')
+		)
+    );
+}

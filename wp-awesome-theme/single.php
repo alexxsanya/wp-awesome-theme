@@ -9,4 +9,10 @@
 
 <?php wp_link_pages() // to link pages with multiple page breaks?>
 
+<?php
+	//add list of posts based on the visits tracking
+	if (function_exists("voting_ui")) {
+		voting_ui();
+	}
+?>
 <?php get_footer() ?>

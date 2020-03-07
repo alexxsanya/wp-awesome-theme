@@ -24,6 +24,9 @@
 		?>
     </div>
     <div class='col-lg-4'>
+	    <?php if(is_active_sidebar('blog_sidebar')):?>
+			<?php dynamic_sidebar('blog_sidebar')?>
+	    <?php endif?>
 		<h5>Most Viewed </h5>
 		<?php
 			//add list of posts based on the visits tracking

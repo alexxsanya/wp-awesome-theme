@@ -106,3 +106,26 @@ function create_my_post_types() {
 		)
     );
 }
+
+// register side bar
+
+function my_sidebars(){
+	register_sidebar(
+		array(
+			'name'=>'Page Sidebar',
+			'id'=>'page_sidebar',
+			'before_title'=>'<h4 class="widget-title">',
+			'after_title'=>'</h4 >'
+		)
+	);
+	register_sidebar(
+		array(
+			'name'=>'Blog Sidebar',
+			'id'=>'blog_sidebar',
+			'before_title'=>'<h4 class="widget-title">',
+			'after_title'=>'</h4 >'
+		)
+	);
+}
+
+add_action('widgets_init', 'my_sidebars');

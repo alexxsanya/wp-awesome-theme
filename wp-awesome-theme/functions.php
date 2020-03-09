@@ -69,19 +69,19 @@ function create_my_post_types() {
     register_post_type( 'projects',
     array(
 		'labels' => array(
-		'name' => __( 'Projects' ),
-		'singular_name' => __( 'Project' ),
-		'add_new' => __( 'Add New Project' ),
-		'add_new_item' => __( 'Add New Project' ),
-		'edit' => __( 'Edit' ),
-		'edit_item' => __( 'Edit Project' ),
-		'new_item' => __( 'New Project' ),
-		'view' => __( 'View Project' ),
-		'view_item' => __( 'View Project' ),
-		'search_items' => __( 'Search Projects' ),
-		'not_found' => __( 'No projects found' ),
-		'not_found_in_trash' => __( 'No projects found in Trash' ),
-		'parent' => __( 'Parent Project' ),
+			'name' => __( 'Projects' ),
+			'singular_name' => __( 'Project' ),
+			'add_new' => __( 'Add New Project' ),
+			'add_new_item' => __( 'Add New Project' ),
+			'edit' => __( 'Edit' ),
+			'edit_item' => __( 'Edit Project' ),
+			'new_item' => __( 'New Project' ),
+			'view' => __( 'View Project' ),
+			'view_item' => __( 'View Project' ),
+			'search_items' => __( 'Search Projects' ),
+			'not_found' => __( 'No projects found' ),
+			'not_found_in_trash' => __( 'No projects found in Trash' ),
+			'parent' => __( 'Parent Project' ),
 		),
 		'public' => true,
 		'show_ui' => true,
@@ -89,10 +89,8 @@ function create_my_post_types() {
 		'exclude_from_search' => false,
 		'menu_position' => 10,
 		'menu_icon' => get_stylesheet_directory_uri() . '/img/nrt-shows.png',
-		'hierarchical' => true,
 		'query_var' => true,
 		'rewrite' => array( 'slug' => 'projects', 'with_front' => false ),
-		'taxonomies' => array( 'post_tag', 'category'),
 		'can_export' => true,
 		'supports' => array(
 			'post-thumbnails',
@@ -107,6 +105,33 @@ function create_my_post_types() {
     );
 }
 
+
+//register a taxonomy project type and attach it to post type projects
+function project_type_taxonomy(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Modes' ,
+			'singular_name' => 'Mode',			
+			'add_new' => __( 'Add New Mode' ),
+			'add_new_item' => __( 'Add New Mode' ),
+			'edit' => __( 'Edit' ),
+			'edit_item' => __( 'Edit Mode' ),
+			'new_item' => __( 'New Mode' ),
+			'view' => __( 'View Mode' ),
+			'view_item' => __( 'View Mode' ),
+			'search_items' => __( 'Search Mode' ),
+			'not_found' => __( 'No Modes found' ),
+			'not_found_in_trash' => __( 'No Modes found in Trash' ),
+			'parent' => __( 'Parent Mode' ),
+		),
+		'public' => true,
+		'hierarchical' => true,
+		
+
+	);
+	register_taxonomy('Modes', array('projects'), $args);
+}
+add_action('init', 'project_type_taxonomy');
 // register side bar
 
 function my_sidebars(){

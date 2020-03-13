@@ -19,7 +19,7 @@
 		//menu location
 		wp_nav_menu( array(
 			'theme_location'    => 'top-menu',
-			'depth'             => 0,
+			'depth'             => 2,
 			'container'         => 'div',
 			'container_class'   => 'collapse navbar-collapse',
 			'container_id'      => 'bs-example-navbar-collapse-1',
